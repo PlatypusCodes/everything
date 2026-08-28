@@ -52,7 +52,7 @@ html,body{width:100%;height:100%;background:#000;font-family:'Inter',sans-serif;
 
 /* card grid */
 .hub-grid{
-  flex:1;display:grid;grid-template-columns:repeat(4,1fr);
+  flex:1;display:grid;grid-template-columns:repeat(7,1fr);
   gap:0;min-height:0;overflow:hidden;
 }
 
@@ -219,7 +219,73 @@ html,body{width:100%;height:100%;background:#000;font-family:'Inter',sans-serif;
 .gm-tile.lit{background:rgba(255,77,109,.28);border-color:rgba(255,77,109,.5)}
 @keyframes gmPop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
 
+/* ── NEW CARD ACCENTS ────────────────────────────────────── */
+.card-tube  {--acc:#ff4444;--acc-dim:rgba(255,68,68,.10);--acc-rgb:255,68,68;background:rgba(255,68,68,.025)}
+.card-cloak {--acc:#a855f7;--acc-dim:rgba(168,85,247,.10);--acc-rgb:168,85,247;background:rgba(168,85,247,.025)}
+.card-data  {--acc:#00d4ff;--acc-dim:rgba(0,212,255,.10);--acc-rgb:0,212,255;background:rgba(0,212,255,.025)}
+
+/* ── TUBE PREVIEW ────────────────────────────────────────── */
+.tb-wrap{width:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
+.tb-logo{opacity:.85}
+.tb-bars{width:100%;display:flex;flex-direction:column;gap:6px}
+.tb-bar{height:5px;border-radius:3px;background:rgba(255,68,68,.2);animation:tbPulse 2s ease-in-out infinite}
+.tb-bar:nth-child(2){animation-delay:.4s}
+.tb-bar:nth-child(3){animation-delay:.8s}
+@keyframes tbPulse{0%,100%{opacity:.3}50%{opacity:.8}}
+
+/* ── CLOAKER PREVIEW ─────────────────────────────────────── */
+.ck-wrap{display:flex;flex-direction:column;align-items:center;gap:10px}
+.ck-icon{animation:ckSpin 8s linear infinite}
+@keyframes ckSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.ck-tag{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,85,247,.6);font-family:monospace}
+
+/* ── DATASTRING PREVIEW ──────────────────────────────────── */
+.dt-wrap{width:100%;display:flex;flex-direction:column;gap:7px}
+.dt-code{font-family:monospace;font-size:.72rem;color:rgba(0,212,255,.55);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dt-dim{color:rgba(255,255,255,.2)}
+.dt-acc{color:rgba(0,212,255,.85)}
+.dt-bar-row{display:flex;flex-direction:column;gap:5px;margin-top:4px}
+.dt-bar{height:4px;border-radius:2px;background:rgba(0,212,255,.15);width:100%;animation:dtFlow 2.5s ease-in-out infinite}
+.dt-bar:nth-child(2){animation-delay:.8s}
+@keyframes dtFlow{0%,100%{opacity:.2}50%{opacity:.7}}
+
+/* ── CLOAK MODAL ─────────────────────────────────────────── */
+#cloak-overlay{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .2s ease;
+}
+#cloak-overlay.active{opacity:1;pointer-events:auto}
+.cloak-modal{
+  background:rgba(10,10,14,.95);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  padding:36px 40px;
+  max-width:380px;width:90%;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  box-shadow:0 0 60px rgba(0,0,0,.8);
+  transform:translateY(10px);
+  transition:transform .2s ease;
+}
+#cloak-overlay.active .cloak-modal{transform:translateY(0)}
+.cloak-icon{color:rgba(255,255,255,.5);margin-bottom:4px}
+.cloak-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
+.cloak-desc{font-size:.82rem;color:rgba(255,255,255,.4);text-align:center;line-height:1.6}
+.cloak-desc code{color:rgba(168,85,247,.8);font-size:.78rem;background:rgba(168,85,247,.1);padding:1px 6px;border-radius:4px}
+.cloak-btns{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:6px}
+.cloak-btn{width:100%;padding:11px;border-radius:9px;font-size:.82rem;font-weight:600;letter-spacing:.04em;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:opacity .15s,transform .15s}
+.cloak-btn:hover{opacity:.85;transform:translateY(-1px)}
+.cloak-btn:active{transform:translateY(0)}
+.cloak-yes{background:linear-gradient(135deg,#a855f7,#7c3aed);color:#fff}
+.cloak-no{background:rgba(255,255,255,.07);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.1)}
+.cloak-cancel{background:transparent;color:rgba(255,255,255,.25);font-size:.75rem;font-weight:400;padding:6px}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:1200px){
+  .hub-grid{grid-template-columns:repeat(4,1fr)}
+}
 @media(max-width:900px){
   .hub-grid{grid-template-columns:repeat(2,1fr)}
   .card{min-height:300px}

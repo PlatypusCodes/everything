@@ -1,3 +1,30 @@
+/* ── CLOAK MODAL ──────────────────────────────────────────── */
+let _pendingUrl='';
+function openCard(e,el){
+  e.preventDefault();
+  _pendingUrl=el.getAttribute('data-href');
+  document.getElementById('cloak-overlay').classList.add('active');
+}
+function closeModal(){
+  document.getElementById('cloak-overlay').classList.remove('active');
+  _pendingUrl='';
+}
+function doNormal(){
+  if(_pendingUrl) window.open(_pendingUrl,'_blank','noopener');
+  closeModal();
+}
+function doCloaked(){
+  if(!_pendingUrl){closeModal();return;}
+  const w=window.open('about:blank','_blank','noopener');
+  if(w){
+    w.document.open();
+    w.document.write(`<!DOCTYPE html><html><head><title>Google</title></head><body style="margin:0;padding:0;overflow:hidden"><iframe src="${_pendingUrl}" style="width:100vw;height:100vh;border:none;display:block" allowfullscreen></iframe></body></html>`);
+    w.document.close();
+  }
+  closeModal();
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
 /* ── CANVAS ───────────────────────────────────────────────── */
 const c0=document.getElementById('c0'),x0=c0.getContext('2d');
 const c1=document.getElementById('c1'),x1=c1.getContext('2d');
