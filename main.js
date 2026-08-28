@@ -2,9 +2,13 @@
 const c0=document.getElementById('c0'),x0=c0.getContext('2d');
 const c1=document.getElementById('c1'),x1=c1.getContext('2d');
 let W,H;
-function resize(){W=c0.width=c1.width=innerWidth;H=c0.height=c1.height=innerHeight}
+function resize(){
+  W=innerWidth;H=innerHeight;
+  c0.width=W;c0.height=H;
+  c1.width=W;c1.height=H;
+}
 resize();
-window.addEventListener('resize',()=>{resize();initStars()});
+window.addEventListener('resize',()=>{resize();initStars();drawSparkline();});
 
 /* ── STARFIELD ────────────────────────────────────────────── */
 let stars=[];
