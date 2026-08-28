@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everything • The Platypus Edition</title>
+<link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/298894342?s=160&v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="c0"></canvas>
+<canvas id="c1"></canvas>
+
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<!-- ── INTRO ───────────────────────────────────────────────── -->
+<div id="intro">
+  <div class="av-ring" id="aring">
+    <svg viewBox="0 0 88 88" width="88" height="88">
+      <circle class="rt" cx="44" cy="44" r="42"/>
+      <circle class="rf" id="rf" cx="44" cy="44" r="42"/>
+    </svg>
+    <div class="av-img" id="avimg">
+      <img src="https://avatars.githubusercontent.com/u/298894342?s=160&v=4" alt="">
+    </div>
+    <div class="av-pulse"></div>
+  </div>
+  <div class="big-word"><span id="ws">Everything</span></div>
+  <div class="intro-sub" id="isub">The Platypus Edition</div>
+  <div class="intro-bar" id="ibar"></div>
+</div>
+
+<!-- ── HUB ─────────────────────────────────────────────────── -->
+<div id="hub">
+  <header class="hub-header">
+    <div class="hub-logo">
+      <img src="https://avatars.githubusercontent.com/u/298894342?s=160&v=4" alt="Platypus">
+      <span class="hub-logo-txt">Platypus</span>
+    </div>
+    <span class="hub-site-count">3 sites</span>
+    <span class="hub-tag">Everything</span>
+  </header>
+
+  <div class="hub-grid">
+
+    <!-- ══════════════════════════════════════════════════════
+         SITE 1 — DoomScroll
+         platypuscodes.github.io/doomscroll
+    ══════════════════════════════════════════════════════════ -->
+    <a class="card card-doom" href="https://platypuscodes.github.io/doomscroll/" target="_blank" rel="noopener">
+      <div class="card-topline"></div>
+      <div class="card-sideline"></div>
+      <div class="card-badge">Site 1</div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </div>
+      <div class="card-preview">
+        <div class="ds-feed">
+          <div class="ds-row">
+            <div class="ds-avatar"></div>
+            <div class="ds-bar-wrap"><div class="ds-bar" style="width:70%"></div><div class="ds-bar-b" style="width:45%"></div></div>
+            <div class="ds-heart">♥ 24k</div>
+          </div>
+          <div class="ds-row" style="animation-delay:-2.7s">
+            <div class="ds-avatar" style="background:rgba(58,134,255,.15)"></div>
+            <div class="ds-bar-wrap"><div class="ds-bar" style="width:55%"></div><div class="ds-bar-b" style="width:80%"></div></div>
+            <div class="ds-heart">♥ 8.1k</div>
+          </div>
+          <div class="ds-row" style="animation-delay:-5.3s">
+            <div class="ds-avatar" style="background:rgba(58,134,255,.25)"></div>
+            <div class="ds-bar-wrap"><div class="ds-bar" style="width:85%"></div><div class="ds-bar-b" style="width:35%"></div></div>
+            <div class="ds-heart">♥ 41k</div>
+          </div>
+          <div class="ds-row" style="animation-delay:-1.2s">
+            <div class="ds-avatar" style="background:rgba(58,134,255,.1)"></div>
+            <div class="ds-bar-wrap"><div class="ds-bar" style="width:60%"></div><div class="ds-bar-b" style="width:55%"></div></div>
+            <div class="ds-heart">♥ 3.2k</div>
+          </div>
+          <div class="ds-row" style="animation-delay:-4s">
+            <div class="ds-avatar"></div>
+            <div class="ds-bar-wrap"><div class="ds-bar" style="width:75%"></div><div class="ds-bar-b" style="width:40%"></div></div>
+            <div class="ds-heart">♥ 17k</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-num">DoomScroll</div>
+      <div class="card-title">TikTok,<br>unrestricted.</div>
+      <div class="card-desc">Browse TikTok content without the usual blocks. Live API feed, no friction.</div>
+    </a>
+
+    <!-- ══════════════════════════════════════════════════════
+         SITE 2 — Memecoin
+         platypuscodes.github.io/memecoin
+    ══════════════════════════════════════════════════════════ -->
+    <a class="card card-meme" href="https://platypuscodes.github.io/memecoin/" target="_blank" rel="noopener">
+      <div class="card-topline"></div>
+      <div class="card-sideline"></div>
+      <div class="card-badge">Site 2</div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </div>
+      <div class="card-preview">
+        <div class="mc-wrap">
+          <div>
+            <div class="mc-price" id="mc-price">$0.0042</div>
+            <div class="mc-change" id="mc-change">▲ 12.4%</div>
+          </div>
+          <canvas class="mc-chart" id="mc-chart"></canvas>
+        </div>
+      </div>
+      <div class="card-num">Memecoin</div>
+      <div class="card-title">One coin.<br>Everyone trades.</div>
+      <div class="card-desc">A single shared chart. Every user sees the exact same price, in real time.</div>
+    </a>
+
+    <!-- ══════════════════════════════════════════════════════
+         SITE 3 — United
+         platypuscodes.github.io/united
+    ══════════════════════════════════════════════════════════ -->
+    <a class="card card-united" href="https://platypuscodes.github.io/united/" target="_blank" rel="noopener">
+      <div class="card-topline"></div>
+      <div class="card-sideline"></div>
+      <div class="card-badge">Site 3</div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </div>
+      <div class="card-preview">
+        <div class="ut-wrap" id="ut-wrap"></div>
+      </div>
+      <div class="card-num">United</div>
+      <div class="card-title">The open<br>directory.</div>
+      <div class="card-desc">Submit a link, build a profile, rack up views. Every click counts, live.</div>
+    </a>
+
+  </div>
+
+  <footer class="hub-footer">
+    <span class="hub-footer-txt">Platypus · Everything</span>
+    <span class="hub-footer-txt" id="hub-time"></span>
+  </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
