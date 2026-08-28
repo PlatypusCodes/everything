@@ -125,6 +125,27 @@ function buildUnitedPreview(){
   });
 }
 
+/* ── GAMES PREVIEW ───────────────────────────────────────── */
+const gmEmojis=['🎮','🕹️','👾','🏆','⚔️','🧩','🚀','🎯','🔫','🏎️','⚽','🃏','🎲','💣','🌀'];
+function buildGamesPreview(){
+  const grid=document.getElementById('gm-grid');if(!grid)return;
+  grid.innerHTML='';
+  for(let i=0;i<15;i++){
+    const t=document.createElement('div');
+    t.className='gm-tile'+(Math.random()<.35?' lit':'');
+    t.style.animationDelay=`${i*.03}s`;
+    t.textContent=gmEmojis[i];
+    grid.appendChild(t);
+  }
+  // randomly light up tiles
+  setInterval(()=>{
+    const tiles=grid.querySelectorAll('.gm-tile');
+    const idx=Math.floor(Math.random()*tiles.length);
+    tiles[idx].classList.add('lit');
+    setTimeout(()=>tiles[idx].classList.remove('lit'),600);
+  },400);
+}
+
 /* ── MEMECOIN TICKER ─────────────────────────────────────── */
 let mcPrice=0.0042;
 function tickPrice(){
@@ -191,7 +212,7 @@ window.addEventListener('load',()=>{
         setTimeout(()=>{ c.style.transition='opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)';c.style.opacity=1;c.style.transform='none'; },i*120);
       });
       corners.forEach(c=>{ c.style.transition='opacity .6s';c.style.opacity=1 });
-      setTimeout(()=>{drawSparkline();buildUnitedPreview();},300);
+      setTimeout(()=>{drawSparkline();buildUnitedPreview();buildGamesPreview();},300);
       setInterval(tickPrice,3000);
       setInterval(updateClock,1000);updateClock();
     },850);
