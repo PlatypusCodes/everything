@@ -1,2 +1,2 @@
-# everything
+# EVERYTHING
 Everything.
